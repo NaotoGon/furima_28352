@@ -32,7 +32,7 @@
 | during | integer | null: false |
 
 ### Association
-- has_one :ship_addresses
+- has_one :ship_addresses, orders
 - belongs_to :users
 
 ## ship_addresses テーブル
