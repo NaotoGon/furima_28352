@@ -24,7 +24,7 @@
 | image | string | null: false |
 | price | integer | null: false |
 | text | string | null: false |
-| user_id | references | null: false, foreign_key: true |
+| user | references | null: false, foreign_key: true |
 | category | integer | null: false |
 | status | integer | null: false |
 | ship_fee | integer | null: false |
@@ -32,8 +32,8 @@
 | during | integer | null: false |
 
 ### Association
-- has_one :ship_addresses, orders
-- belongs_to :users
+- has_one :ship_addresse, order
+- belongs_to :user
 
 ## ship_addresses テーブル
 
@@ -45,23 +45,23 @@
 | house_number | string  | null: false               |
 | building_name | string  |                          |
 | phone_number | string  | null: false               |
-| item_id | references | null: false, foreign_key: true |
+| item | references | null: false, foreign_key: true |
 
 
 ### Association
 
-- belongs_to :items
+- belongs_to :item
 
 ## orders テーブル
 
 | Column  | Type    | Options                        |
 | ------- |  -------| ------------------------------ |
-| user_id | references | null: false, foreign_key: true |
-| item_id | references | null: false, foreign_key: true |
+| user | references | null: false, foreign_key: true |
+| item | references | null: false, foreign_key: true |
 
 
 ### Association
 
-- belongs_to :items, users
+- belongs_to :item, user
 
 
