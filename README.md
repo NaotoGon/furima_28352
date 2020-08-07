@@ -28,24 +28,34 @@
 | category | integer | null: false |
 | status | integer | null: false |
 | ship_fee | integer | null: false |
-| prefecture | integer | null: false |
+| region | integer | null: false |
 | during | integer | null: false |
 
 ### Association
-- has_one :address
+- has_one :ship_addresses
 - belongs_to :users
 
-## orders テーブル
+## ship_addresses テーブル
 
 | Column  | Type    | Options                        |
 | ------- |  -------| ------------------------------ |
-| price | integer | null: false                |
 | postal_code | string  | null: false                |
 | prefecture | integer | null: false                 |
 | city | string  | null: false                       |
 | house_number | string  | null: false               |
 | building_name | string  |                          |
 | phone_number | string  | null: false               |
+| item_id | references | null: false, foreign_key: true |
+
+
+### Association
+
+- belongs_to :items
+
+## orders テーブル
+
+| Column  | Type    | Options                        |
+| ------- |  -------| ------------------------------ |
 | user_id | references | null: false, foreign_key: true |
 | item_id | references | null: false, foreign_key: true |
 
