@@ -6,7 +6,7 @@
 | -------- | ------ | ----------- |
 | nickname | string | null: false |
 | name     | string | null: false |
-| readname | string | null: false |
+| name_reading | string | null: false |
 | birthday | string | null: false |
 | email    | string | null: false |
 | password | string | null: false |
