@@ -25,16 +25,15 @@
 | user_id | references | null: false, foreign_key: true |
 | category | string | null: false |
 | status | string | null: false |
-| shipfee | string | null: false |
+| ship_fee | string | null: false |
 | prefecture | string | null: false |
 | during | string | null: false |
 
 ### Association
-- has_many :room_users
-- has_many :users, through: room_users
-- has_many :messages
+- has_one :address
+- belongs_to :users
 
-## address テーブル
+## ship_address テーブル
 
 | Column  | Type    | Options                        |
 | ------- |  -------| ------------------------------ |
@@ -44,8 +43,9 @@
 | house_number | string  | null: false               |
 | building_name | string  |                          |
 | phone_number | string  | null: false               |
+| item_id | references | null: false, foreign_key: true |
+
 
 ### Association
 
-- belongs_to :room
-- belongs_to :user
+- belongs_to :items
