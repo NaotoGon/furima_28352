@@ -14,7 +14,7 @@
 | password | string | null: false |
 
 ### Association
-- has_many :items
+- has_many :items, orders
 
 ## items テーブル
 
@@ -35,19 +35,23 @@
 - has_one :address
 - belongs_to :users
 
-## ship_address テーブル
+## orders テーブル
 
 | Column  | Type    | Options                        |
 | ------- |  -------| ------------------------------ |
+| price | integer | null: false                |
 | postal_code | string  | null: false                |
 | prefecture | integer | null: false                 |
 | city | string  | null: false                       |
 | house_number | string  | null: false               |
 | building_name | string  |                          |
 | phone_number | string  | null: false               |
+| user_id | references | null: false, foreign_key: true |
 | item_id | references | null: false, foreign_key: true |
 
 
 ### Association
 
-- belongs_to :items
+- belongs_to :items, users
+
+
