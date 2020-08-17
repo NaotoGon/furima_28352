@@ -4,15 +4,16 @@ class Item < ApplicationRecord
 
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :category_id
-  belongs_to_active_hash :during_id
-  belongs_to_active_hash :region_id
-  belongs_to_active_hash :ship_fee_id
-  belongs_to_active_hash :status_id
+  belongs_to_active_hash :category
+  belongs_to_active_hash :during
+  belongs_to_active_hash :region
+  belongs_to_active_hash :ship_fee
+  belongs_to_active_hash :status
 
-  #空の投稿を保存できないようにする
+
   validates :name, :price, :text, :category_id, :during_id, :region_id, :ship_fee_id, :status_id, presence: true
+  validates :category_id, :during_id, :region_id, :ship_fee_id, :status_id, numericality: { other_than: 0 }
+  validates :price, numericality: { greater_than_or_equal_to: 300 }
+  validates :price, numericality: { less_than_or_equal_to: 9999999 }
 
-  #ジャンルの選択が「--」の時は保存できないようにする
-  validates :category_id, :during_id, :region_id, :ship_fee_id, :status_id, numericality: { other_than: 0 } 
 end
