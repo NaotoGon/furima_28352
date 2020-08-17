@@ -1,0 +1,2 @@
+class During < ApplicationRecord
+end
