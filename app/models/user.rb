@@ -17,4 +17,5 @@ class User < ApplicationRecord
     validates :name_reading, :fam_name_reading, format: { with: VALID_NAME_READING_REGEX }
   end
 
+  has_many :items
 end
