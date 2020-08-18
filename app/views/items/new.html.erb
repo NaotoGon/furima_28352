@@ -104,17 +104,13 @@
         <div class="price-content">
           <span>販売手数料 (10%)</span>
           <span>
-            <span class="fee-span" id='add-tax-price'>
-              
-            </span>円
+            <span class="fee-span" id='add-tax-price'></span>円
           </span>
         </div>
         <div class="price-content">
           <span>販売利益</span>
           <span>
-            <span class="profit-span" id='profit'>
-              
-            </span>円
+            <span class="profit-span" id='profit'></span>円
         </div>
         </span>
       </div>
@@ -164,8 +160,8 @@
 
 <script>
   $(function(){
-    $("#item_price").on('keyup', function(){
-      var price = $("#item_price").val();
+    $("#item-price").on('keyup', function(){
+      var price = $("#item-price").val();
       if( 300 <= price && price <= 9999999) {
       var fee = Math.floor(price / 10);
       var profit = (price - fee);
