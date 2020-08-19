@@ -25,14 +25,14 @@
 | price | integer | null: false |
 | text | string | null: false |
 | user | references | null: false, foreign_key: true |
-| category | integer | null: false |
-| status | integer | null: false |
-| ship_fee | integer | null: false |
-| region | integer | null: false |
-| during | integer | null: false |
+| category_id | integer | null: false |
+| status_id | integer | null: false |
+| ship_fee_id | integer | null: false |
+| region_id | integer | null: false |
+| during_id | integer | null: false |
 
 ### Association
-- has_one :ship_addresse, order
+- has_one :ship_address, order
 - belongs_to :user
 
 ## ship_addresses テーブル
