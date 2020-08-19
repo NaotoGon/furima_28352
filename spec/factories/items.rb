@@ -1,5 +1,4 @@
 FactoryBot.define do
-  # user = FactoryBot.create(:user)
   factory :item do
     name {Gimei.name.first}
     price { 1000 }
@@ -9,6 +8,6 @@ FactoryBot.define do
     ship_fee_id { 4 }
     region_id { 4 }
     during_id { 4 }
-    
+    association :user
   end
 end
