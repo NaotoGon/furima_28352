@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :login_check, only: [:new, :create]
+
   def index
   end
 
@@ -12,6 +14,13 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       render :new
+    end
+  end
+
+  def login_check
+    unless user_signed_in?
+      flash[:alert] = "ログインしてください"
+      redirect_to root_path
     end
   end
 
