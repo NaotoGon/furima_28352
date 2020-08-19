@@ -72,6 +72,37 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("During can't be blank")
     end
 
+    it "categoryが---では登録できないこと" do
+      @item.category_id = 0
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Category must be other than 0")
+    end
+
+    it "statusが---では登録できないこと" do
+      @item.status_id = 0
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Status must be other than 0")
+    end
+
+    it "ship_feeが---では登録できないこと" do
+      @item.ship_fee_id = 0
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Ship fee must be other than 0")
+    end
+
+    it "regionが---では登録できないこと" do
+      @item.region_id = 0
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Region must be other than 0")
+    end
+
+    it "duringが---では登録できないこと" do
+      @item.during_id = 0
+      @item.valid?
+      expect(@item.errors.full_messages).to include("During must be other than 0")
+    end
+
+
     it "画像が空では登録できないこと" do
       @item.image = nil
       @item.valid?
