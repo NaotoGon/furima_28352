@@ -7,10 +7,8 @@
     <h2 class="items-sell-title">商品の情報を入力</h2>
     <%= form_with model: @item, local: true do |f| %>
 
-    <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
     <%= render 'shared/error_messages', model: f.object %>
-    <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-
+    
     <%# 出品画像 %>
     <div class="img-upload">
       <div class="weight-bold-text">
@@ -159,18 +157,5 @@
 </div>
 
 <script>
-  $(function(){
-    $("#item-price").on('keyup', function(){
-      var price = $("#item-price").val();
-      if( 300 <= price && price <= 9999999) {
-      var fee = Math.floor(price / 10);
-      var profit = (price - fee);
-      $(".fee-span").text(fee);
-      $(".profit-span").text(profit);
-      }else{
-      $(".fee-span").text('');
-      $(".profit-span").text('');
-      }
-    })
-  });
+ 
 </script>

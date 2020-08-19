@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
   describe '#create' do
     before do
-      @user = FactoryBot.build(:user)
       @item = FactoryBot.build(:item)
       @item.image = fixture_file_upload(('app/assets/images/item_test.png'))
     end
