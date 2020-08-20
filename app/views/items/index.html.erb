@@ -137,9 +137,11 @@
               <%= image_tag "/app/assets/images/item-test.png"%>
             <% end %>
             <%# 商品が売れていればsold outの表示 %>
-            <%# <div class='sold-out'>
-              <span>Sold Out!!</span>
-            </div> %>
+            <% if item.order.presence %>
+              <div class='sold-out'>
+                <span>Sold Out!!</span>
+              </div>
+            <% end %>
             <%# //商品が売れていればsold outの表示 %>
 
           </div>
