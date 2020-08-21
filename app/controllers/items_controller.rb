@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :login_check, only: [:new, :create]
-  before_action :get_item, only: [:edit]
+  before_action :get_item, only: [:edit, :destroy, :update]
 
   def index
     @items = Item.all.order(id: "DESC")
@@ -24,13 +24,19 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
   end
 
   def update
-    item = Item.find(params[:id])
-    item.update(item_params)
-    if item.save
+    @item.update(item_params)
+    if @item.save
       redirect_to root_path
     else
       render :edit
