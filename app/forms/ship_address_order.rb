@@ -5,11 +5,12 @@ class ShipAddressOrder
 
 
   with_options presence: true do
-    varidates :city, :house_number
+    validates :city, :house_number
     validates :prefecture_id, numericality: { other_than: 0 }
-    VALID_POSTAL_CODE_REGEX = /^\d{3}[-]\d{4}$/
-    validates :email, format: { with: VALID_POSTAL_CODE_REGEX }
+    VALID_POSTAL_CODE_REGEX = /\A\d{3}[-]\d{4}$\Z/
+    validates :postal_code, format: { with: VALID_POSTAL_CODE_REGEX }
     validates :phone_number, length: { maximum: 11 }
+  end
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
