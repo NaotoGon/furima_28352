@@ -8,19 +8,24 @@ class OrdersController < ApplicationController
 
   def new
     @order = ShipAddressOrder.new
+    @ship_address = @order.ship_addresses.new
   end
 
-  def create
+  def create 
     @order = ShipAddressOrder.new(order_params)
-    @donation.save
+    if @order.save
+      redirect_to root_path
+    else
+      render :index
+    end
   end
 
 
   private
 
   def order_params
-    params.parmit(:token)
-    params.require(:ship_address_order).permit(:postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number)
+    # params.permit(:token)
+    params.permit(:token, :postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :item_id).merge(user_id: current_user.id)
   end
 
   def pay_item
