@@ -4,11 +4,7 @@ class OrdersController < ApplicationController
 
   def index
     @item = Item.find(params[:item_id])
-  end
-
-  def new
     @order = ShipAddressOrder.new
-    @ship_address = @order.ship_addresses.new
   end
 
   def create 
