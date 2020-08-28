@@ -1,9 +1,10 @@
 class OrdersController < ApplicationController
   before_action :login_check, only: [:index]
   before_action :owner_check, only: [:index]
+  before_action :get_item, only: [:index, :create]
 
   def index
-    @item = Item.find(params[:item_id])
+    
     @order = ShipAddressOrder.new
   end
 
@@ -27,7 +28,7 @@ class OrdersController < ApplicationController
   end
 
   def pay_item
-    @item = Item.find(params[:item_id])
+    
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  # PAY.JPテスト秘密鍵
     Payjp::Charge.create(
       amount: @item.price,  # 商品の値段
@@ -48,6 +49,10 @@ class OrdersController < ApplicationController
     if current_user.id == @item.user.id
       redirect_to root_path
     end
+  end
+
+  def get_item
+    @item = Item.find(params[:item_id])
   end
 
 end

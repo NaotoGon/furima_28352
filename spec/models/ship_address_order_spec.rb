@@ -46,6 +46,12 @@ RSpec.describe ShipAddressOrder, type: :model do
       expect(@ship_address_order.errors.full_messages).to include("Phone number can't be blank")
     end
 
+    it "phone_numberにハイフンがあると登録できないこと" do
+      @ship_address_order.phone_number = 000-0000
+      @ship_address_order.valid?
+      expect(@ship_address_order.errors.full_messages).to include("Phone number is invalid")
+    end
+
     it "phone_numberが12けた以上では登録できないこと" do
       @ship_address_order.phone_number = "123456789012"
       @ship_address_order.valid?
