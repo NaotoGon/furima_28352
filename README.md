@@ -9,9 +9,11 @@ ID: admin
 Pass: 2222
 
 テスト用アカウント等
-購入者用
-メールアドレス: testtest@test.test
-パスワード: testtest
+
+購入者用メールアドレス:
+testtest@test.test
+パスワード: 
+testtest
 購入用カード情報
 番号：4242424242424242
 期限：Wed Jan 22 2020 00:00:00 GMT+0900 (日本標準時)
