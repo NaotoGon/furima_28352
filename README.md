@@ -19,19 +19,28 @@ testtest@test.test
 testtest
 
 購入用カード情報
+
 番号：4242424242424242
+
 期限：Wed Jan 22 2020 00:00:00 GMT+0900 (日本標準時)
+
 セキュリティコード：111
-出品者用
-メールアドレス名: tarou@aa.aa
+
+出品者用メールアドレス: 
+
+tarou@aa.aa
+
 パスワード: tennis57
 
 開発状況
 開発環境
 Ruby/Ruby on Rails/MySQL/Github/Visual Studio Code
+
 開発期間と平均作業時間
 開発期間：8/5~8/28(23日間)
+
 1日あたりの平均作業時間：6時間
+
 合計：150時間程度
 
 動作確認方法
