@@ -20,7 +20,6 @@ class OrdersController < ApplicationController
     end
   end
 
-
   private
 
   def order_params
