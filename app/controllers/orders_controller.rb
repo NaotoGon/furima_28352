@@ -4,7 +4,6 @@ class OrdersController < ApplicationController
   before_action :get_item, only: [:index, :create]
 
   def index
-    
     @order = ShipAddressOrder.new
   end
 
@@ -27,7 +26,6 @@ class OrdersController < ApplicationController
   end
 
   def pay_item
-    
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  # PAY.JPテスト秘密鍵
     Payjp::Charge.create(
       amount: @item.price,  # 商品の値段
